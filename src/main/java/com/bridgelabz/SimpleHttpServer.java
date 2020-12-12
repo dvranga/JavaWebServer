@@ -12,7 +12,7 @@ public class SimpleHttpServer {
 
     public static void main(String[] args) {
         SimpleHttpServer httpServer = new SimpleHttpServer();
-        httpServer.start(DEFAULT_PORT)
+        httpServer.start(DEFAULT_PORT);
     }
 
     private void start(int port) {
@@ -22,6 +22,8 @@ public class SimpleHttpServer {
             System.out.println("server started at "+port);
             httpServer.createContext("/",new Handlers.RootHandler());
             httpServer.createContext("/echoHeader", new Handlers.EchoHeaderHandler());
+            httpServer.createContext("/echoGet", new Handlers.EchoGetHandler());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
