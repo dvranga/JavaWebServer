@@ -21,6 +21,7 @@ public class SimpleHttpServer {
             httpServer = HttpServer.create(new InetSocketAddress(port),0);
             System.out.println("server started at "+port);
             httpServer.createContext("/",new Handlers.RootHandler());
+            httpServer.createContext("/echoHeader", new Handlers.EchoHeaderHandler());
         } catch (IOException e) {
             e.printStackTrace();
         }
